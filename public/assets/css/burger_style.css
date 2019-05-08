@@ -1,12 +1,13 @@
 body {
     width: 99%;
     height: 900px;
-    background-color: green;
+    background-image: url("/assets/img/burger.gif")
+
 }
   
 h1 {
     font-family: 'Merienda', cursive;
-    color: #f30;
+    color:gold;
 }
 
 #burgerimg {
