@@ -4,6 +4,9 @@ var router = express.Router();
 // Import the models to use its database functions.
 var db = require("../models");
 
+router.get("/itsworking", function(req,res) {
+  res.send("Router is working!");
+});
 
 // show all the burger data in the database 
 router.get("/api/all", function(req,res){
@@ -41,10 +44,11 @@ router.post("/burgers/create", function(req,res){
 
 // Put route
 router.put("/burgers/update", function(req,res){
+  console.log("It worked" + req.body);
   var eaten = {
     devoured : 1
   }
-  db.burgers.update(eaten, {
+  db.burgers.update (eaten, {
     where : {
       id : req.body.burger_id
     }
