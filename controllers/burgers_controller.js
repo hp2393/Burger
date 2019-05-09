@@ -4,15 +4,13 @@ var router = express.Router();
 // Import the models to use its database functions.
 var db = require("../models");
 
-router.get("/itsworking", function(req,res) {
-  res.send("Router is working!");
-});
+// router.get("/", function(req,res) {
+//   res.send("Router is working!");
+// });
 
-// show all the burger data in the database 
-router.get("/api/all", function(req,res){
-  db.burgers.findAll().then(function(results){
-    res.json(results);
-  });
+// Index route
+router.get("/", function(req, res) {
+  res.redirect("/burgers");
 });
 
 // Get all the burgers in the database and render the index.handlebars page 
@@ -25,9 +23,11 @@ router.get("/burgers", function(req,res){
   });
 });
 
-// Index route
-router.get("/", function(req, res) {
-  res.redirect("/burgers");
+// show all the burger data in the database 
+router.get("/api/all", function(req,res){
+  db.burgers.findAll().then(function(results){
+    res.json(results);
+  });
 });
 
 // Post route back to index
